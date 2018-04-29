@@ -1,14 +1,14 @@
 import React from 'react'
 import { StackNavigator } from 'react-navigation'
 import { Animated, Easing } from 'react-native'
-import HomeScreen from './HomeScreen'
-import BestNames from './BestNames'
-import HeaderButton from './HeaderButton'
+import HomeScreen from '@screens/HomeScreen'
+import SavedNamesNavigator from '@screens/SavedNamesNavigator'
+import HeaderButton from '@components/HeaderButton'
 
 const transitionConfig = (props) => {
   const { scenes } = props
 
-  if (scenes[scenes.length - 1].route.routeName === 'BestNames') {
+  if (scenes[scenes.length - 1].route.routeName === 'SavedNames') {
     const bestNameIndex = scenes[scenes.length - 1].index
     return {
       transitionSpec: {
@@ -85,12 +85,12 @@ const AppNavigator = StackNavigator({
     screen: HomeScreen,
     navigationOptions: (props) => {
       return {
-        headerRight: (<HeaderButton onPress={() => props.navigation.navigate('BestNames')} />)
+        headerRight: (<HeaderButton onPress={() => props.navigation.navigate('SavedNames')} />)
       }
     }
   },
-  BestNames: {
-    screen: BestNames,
+  SavedNames: {
+    screen: SavedNamesNavigator,
     navigationOptions: props => {
       return {
         headerStyle: {
@@ -99,7 +99,7 @@ const AppNavigator = StackNavigator({
         },
         title: 'Opgeslagen namen',
         headerLeft: null,
-        headerRight: (<HeaderButton onPress={props.navigation.goBack} type='close' />)
+        headerRight: (<HeaderButton onPress={() => props.navigation.goBack()} type='close' />)
       }
     }
   }

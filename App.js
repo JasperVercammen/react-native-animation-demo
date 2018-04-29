@@ -1,6 +1,6 @@
 import React from 'react'
 import { ImageBackground, Image } from 'react-native'
-import AppNavigator from './AppNavigator'
+import AppNavigator from '@screens/AppNavigator'
 
 export default class App extends React.Component {
   constructor (props) {

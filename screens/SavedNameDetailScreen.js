@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import {Image, View, StyleSheet, Dimensions, Text} from 'react-native'
 import {Transition} from 'react-navigation-fluid-transitions'
 import { DangerZone } from 'expo'
-import Button from './Button'
+import Button from '@components/Button'
 let { Lottie } = DangerZone
 
 const { width } = Dimensions.get('window')
 
-class NameInfo extends Component {
+class SavedNameDetailScreen extends Component {
   componentDidMount () {
     this.animation.reset()
     this.animation.play()
@@ -59,4 +59,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default NameInfo
+export default SavedNameDetailScreen

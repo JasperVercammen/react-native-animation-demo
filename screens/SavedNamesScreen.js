@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Image, View, TouchableOpacity, StyleSheet, Text} from 'react-native'
 import {Transition} from 'react-navigation-fluid-transitions'
 
-class NamesOverview extends Component {
+class SavedNamesScreen extends Component {
   render () {
     return (
       <View style={styles.container}>
@@ -10,7 +10,7 @@ class NamesOverview extends Component {
         {this.props.screenProps.names.map(baby => {
           return (
             <View style={styles.row} key={baby.name} >
-              <TouchableOpacity activeOpacity={0.8} onPress={() => this.props.navigation.navigate('NameInfo', {baby})}>
+              <TouchableOpacity activeOpacity={0.8} onPress={() => this.props.navigation.navigate('SavedNameDetail', {baby})}>
                 <View style={styles.buttonWrapper}>
                   <Transition shared={`babyPic_${baby.name}`}>
                     <Image source={baby.gender === 'male' ? require('@assets/boy.png') : require('@assets/girl.png')} style={styles.image} />
@@ -62,4 +62,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default NamesOverview
+export default SavedNamesScreen

@@ -2,18 +2,18 @@ import React, { Component } from 'react'
 import {Dimensions, View, StyleSheet, Animated, Easing} from 'react-native'
 import {withNavigationFocus} from 'react-navigation'
 import { FluidNavigator } from 'react-navigation-fluid-transitions'
-import NameInfo from './NameInfo'
-import NamesOverview from './NamesOverview'
+import SavedNameDetailScreen from '@screens/SavedNameDetailScreen'
+import SavedNamesScreen from '@screens/SavedNamesScreen'
 
 const { width, height } = Dimensions.get('window')
 const size = Math.min(width, height) - 1
 
-const BestNamesNavigator = FluidNavigator({
-  NamesOverview: { screen: NamesOverview },
-  NameInfo: { screen: NameInfo }
+const SavedNamesNavigator = FluidNavigator({
+  SavedNamesOverview: { screen: SavedNamesScreen },
+  SavedNameDetail: { screen: SavedNameDetailScreen }
 })
 
-class BestNames extends Component {
+class SavedNamesContainer extends Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -74,7 +74,7 @@ class BestNames extends Component {
           }]
         }} />
         <Animated.View style={{opacity: this.state.opacity, flex: 1}}>
-          <BestNamesNavigator screenProps={this.props.screenProps} />
+          <SavedNamesNavigator screenProps={this.props.screenProps} />
         </Animated.View>
       </View>
     )
@@ -90,4 +90,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default withNavigationFocus(BestNames)
+export default withNavigationFocus(SavedNamesContainer)

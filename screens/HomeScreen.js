@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react'
 import { StyleSheet, TouchableOpacity, Image, ImageBackground, Text } from 'react-native'
-import Button from './Button'
+import Button from '@components/Button'
 
 class HomeScreen extends PureComponent {
   constructor (props) {
