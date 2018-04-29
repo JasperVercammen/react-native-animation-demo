@@ -33,10 +33,10 @@ class HomeScreen extends PureComponent {
   render () {
     const saveName = this.props.screenProps.saveName
     return (
-      <ImageBackground source={require('./slab.png')} resizeMode='stretch' style={styles.container}>
+      <ImageBackground source={require('@assets/slab.png')} resizeMode='stretch' style={styles.container}>
         <TouchableOpacity onPress={() => saveName(this.state.name, this.state.gender)}>
-          {this.state.gender === 'male' && <Image resizeMode='contain' source={require('./boy.png')} style={styles.image} />}
-          {this.state.gender === 'female' && <Image source={require('./girl.png')} style={styles.image} />}
+          {this.state.gender === 'male' && <Image resizeMode='contain' source={require('@assets/boy.png')} style={styles.image} />}
+          {this.state.gender === 'female' && <Image source={require('@assets/girl.png')} style={styles.image} />}
         </TouchableOpacity>
         <Text style={styles.title}>{this.state.name}</Text>
         <Button label='Liever een andere naam' onPress={this.navigateNext} />

@@ -13,7 +13,7 @@ class NamesOverview extends Component {
               <TouchableOpacity activeOpacity={0.8} onPress={() => this.props.navigation.navigate('NameInfo', {baby})}>
                 <View style={styles.buttonWrapper}>
                   <Transition shared={`babyPic_${baby.name}`}>
-                    <Image source={baby.gender === 'male' ? require('./boy.png') : require('./girl.png')} style={styles.image} />
+                    <Image source={baby.gender === 'male' ? require('@assets/boy.png') : require('@assets/girl.png')} style={styles.image} />
                   </Transition>
                   <Transition shared={`babyName_${baby.name}`}>
                     <Text>{baby.name}</Text>

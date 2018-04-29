@@ -19,7 +19,7 @@ class NameInfo extends Component {
       <View style={styles.container}>
         <View style={styles.topContainer}>
           <Transition shared={`babyPic_${params.baby.name}`}>
-            <Image source={params.baby.gender === 'male' ? require('./boy.png') : require('./girl.png')} style={styles.image} />
+            <Image source={params.baby.gender === 'male' ? require('@assets/boy.png') : require('@assets/girl.png')} style={styles.image} />
           </Transition>
         </View>
         <View style={styles.animation}>
@@ -32,7 +32,7 @@ class NameInfo extends Component {
               height: 200,
               backgroundColor: 'transparent'
             }}
-            source={require('./confetti.json')}
+            source={require('@assets/confetti.json')}
           />}
         </View>
         <Transition shared={`babyName_${params.baby.name}`}>

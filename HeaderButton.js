@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import {StyleSheet, View, TouchableOpacity, Image} from 'react-native'
 
 class HeaderButton extends Component {
-  render() {
+  render () {
     return (
       <View style={styles.container}>
         <TouchableOpacity onPress={this.props.onPress}>
-          <Image source={this.props.type === 'close' ? require('./close.png') : require('./cubes.png')} style={styles.image} />
+          <Image source={this.props.type === 'close' ? require('@assets/close.png') : require('@assets/cubes.png')} style={styles.image} />
         </TouchableOpacity>
-      </View>      
-    );
+      </View>
+    )
   }
 }
 
@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
   },
   image: {
     width: 30,
-    height: 30,
+    height: 30
   }
 })
 
-export default HeaderButton;
+export default HeaderButton

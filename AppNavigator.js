@@ -99,7 +99,7 @@ const AppNavigator = StackNavigator({
         },
         title: 'Opgeslagen namen',
         headerLeft: null,
-        headerRight: (<HeaderButton onPress={() => props.navigation.goBack()} type='close' />)
+        headerRight: (<HeaderButton onPress={props.navigation.goBack} type='close' />)
       }
     }
   }
