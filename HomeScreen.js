@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
-import { StyleSheet, TouchableOpacity, View, Image, ImageBackground, Text, Button } from 'react-native'
-import { colors } from './colors'
+import React, { PureComponent } from 'react'
+import { StyleSheet, TouchableOpacity, Image, ImageBackground, Text } from 'react-native'
+import Button from './Button'
 
 class HomeScreen extends PureComponent {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       name: '',
@@ -11,7 +11,7 @@ class HomeScreen extends PureComponent {
     }
     this.getRandomName()
   }
-  
+
   getRandomName = () => {
     fetch('https://uinames.com/api/?region=belgium')
       .then((response) => response.json())
@@ -30,19 +30,18 @@ class HomeScreen extends PureComponent {
     this.props.navigation.popToTop()
   }
 
-  render() {
-    const params = this.props.navigation.state.params || {}
+  render () {
     const saveName = this.props.screenProps.saveName
     return (
       <ImageBackground source={require('./slab.png')} resizeMode='stretch' style={styles.container}>
         <TouchableOpacity onPress={() => saveName(this.state.name, this.state.gender)}>
-          {this.state.gender === 'male' && <Image resizeMode='contain' source={require('./boy.png')} style={styles.image}/>}
-          {this.state.gender === 'female' && <Image source={require('./girl.png')} style={styles.image}/>}
+          {this.state.gender === 'male' && <Image resizeMode='contain' source={require('./boy.png')} style={styles.image} />}
+          {this.state.gender === 'female' && <Image source={require('./girl.png')} style={styles.image} />}
         </TouchableOpacity>
         <Text style={styles.title}>{this.state.name}</Text>
-        <TouchableOpacity style={styles.button} activeOpacity={0.7} onPress={this.navigateNext}><Text style={styles.buttonText}>Liever een andere naam</Text></TouchableOpacity>
+        <Button label='Liever een andere naam' onPress={this.navigateNext} />
       </ImageBackground>
-    );
+    )
   }
 }
 
@@ -51,7 +50,6 @@ HomeScreen.navigationOptions = ({navigation}) => {
   return {
     title: `Naam ${params.count}`
   }
-
 }
 
 const styles = StyleSheet.create({
@@ -83,4 +81,4 @@ const styles = StyleSheet.create({
   }
 })
 
-export default HomeScreen;
+export default HomeScreen

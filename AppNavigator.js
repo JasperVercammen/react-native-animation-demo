@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { StackNavigator } from 'react-navigation'
 import { Animated, Easing } from 'react-native'
 import HomeScreen from './HomeScreen'
@@ -6,25 +6,24 @@ import BestNames from './BestNames'
 import HeaderButton from './HeaderButton'
 
 const transitionConfig = (props) => {
-  const { scene, scenes } = props
+  const { scenes } = props
 
-  if (scenes[scenes.length -1].route.routeName === 'BestNames') {
-    const bestNameIndex = scenes[scenes.length -1].index
+  if (scenes[scenes.length - 1].route.routeName === 'BestNames') {
+    const bestNameIndex = scenes[scenes.length - 1].index
     return {
       transitionSpec: {
         delay: 150,
         duration: 150
       },
       containerStyle: {
-        backgroundColor: 'transparent',
+        backgroundColor: 'transparent'
       },
       screenInterpolator: sceneProps => {
-        const { index, scene, scenes } = sceneProps
-        const toIndex = index
-          if(scene.index === index || scene.index + 1 === index || bestNameIndex === scene.index) return {}
-          return {
-            opacity: 0
-          }
+        const { index, scene } = sceneProps
+        if (scene.index === index || scene.index + 1 === index || bestNameIndex === scene.index) return {}
+        return {
+          opacity: 0
+        }
       }
     }
   }
@@ -36,26 +35,25 @@ const transitionConfig = (props) => {
       useNativeDriver: true
     },
     containerStyle: {
-      backgroundColor: 'transparent',
+      backgroundColor: 'transparent'
     },
     screenInterpolator: sceneProps => {
-      const { position, progress, layout, scene, index, scenes } = sceneProps
+      const { position, progress, layout, scene, index } = sceneProps
       const toIndex = index
       const thisSceneIndex = scene.index
-      const height = layout.initHeight
       const width = layout.initWidth
 
       if (toIndex !== thisSceneIndex && thisSceneIndex !== toIndex - 1 && thisSceneIndex !== toIndex + 1) return { opacity: 0 }
 
       const translateX = position.interpolate({
-        inputRange: [thisSceneIndex - 1, thisSceneIndex - .8, thisSceneIndex - .2, thisSceneIndex, thisSceneIndex + .2, thisSceneIndex + .8, thisSceneIndex + 1],
+        inputRange: [thisSceneIndex - 1, thisSceneIndex - 0.8, thisSceneIndex - 0.2, thisSceneIndex, thisSceneIndex + 0.2, thisSceneIndex + 0.8, thisSceneIndex + 1],
         outputRange: [width, width, 0, 0, 0, -width, -width]
       })
-    
-       const rotate = position.interpolate({
-          inputRange: [thisSceneIndex - 1, thisSceneIndex - .8, thisSceneIndex - .2, thisSceneIndex, thisSceneIndex + .2, thisSceneIndex + .8, thisSceneIndex + 1],
-          outputRange: ['-9deg', '-9deg', '0deg', '0deg', '0deg', '9deg', '9deg',]
-        })
+
+      const rotate = position.interpolate({
+        inputRange: [thisSceneIndex - 1, thisSceneIndex - 0.8, thisSceneIndex - 0.2, thisSceneIndex, thisSceneIndex + 0.2, thisSceneIndex + 0.8, thisSceneIndex + 1],
+        outputRange: [ '-9deg', '-9deg', '0deg', '0deg', '0deg', '9deg', '9deg' ]
+      })
 
       const scale = progress.interpolate({
         inputRange: [0, 0.1, 0.5, 0.9, 1],
@@ -76,19 +74,18 @@ const transitionConfig = (props) => {
           outputRange: [-30, -30, 0, 0]
         })
       }
-      
+
       return { transform: [{ translateX }, { translateY }, {scale}, {rotate}] }
     }
   }
 }
 
-
 const AppNavigator = StackNavigator({
-  Home: { 
-    screen: HomeScreen, 
+  Home: {
+    screen: HomeScreen,
     navigationOptions: (props) => {
       return {
-        headerRight: (<HeaderButton onPress={() => props.navigation.navigate('BestNames')}/>)
+        headerRight: (<HeaderButton onPress={() => props.navigation.navigate('BestNames')} />)
       }
     }
   },
@@ -98,11 +95,11 @@ const AppNavigator = StackNavigator({
       return {
         headerStyle: {
           backgroundColor: 'transparent',
-          borderBottomWidth: 0,
+          borderBottomWidth: 0
         },
         title: 'Opgeslagen namen',
         headerLeft: null,
-        headerRight: (<HeaderButton onPress={() => props.navigation.goBack()} type='close'/>)
+        headerRight: (<HeaderButton onPress={() => props.navigation.goBack()} type='close' />)
       }
     }
   }
