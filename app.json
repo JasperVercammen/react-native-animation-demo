@@ -1,5 +1,9 @@
 {
   "expo": {
-    "sdkVersion": "26.0.0"
+    "name": "React Navigation Animations",
+    "slug": "react-navigation-animations",
+    "sdkVersion": "26.0.0",
+    "privacy": "public",
+    "icon": "./assets/icon.png"
   }
 }

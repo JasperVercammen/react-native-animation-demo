@@ -14,3 +14,7 @@ When installing the dependencies is done, you can run `yarn start` and expo will
  - expo
  - react-navigation
  - react-navigation-fluid-transitions
+
+
+---
+*Icons made by [Freepik](http://www.freepik.com) from [www.flaticon.com](https://www.flaticon.com/) is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)*
