@@ -67,7 +67,7 @@ class BestNames extends Component {
       <View style={styles.container}>
           <Animated.View style={{
             position: 'absolute',
-            backgroundColor: '#f19e9e',
+            backgroundColor: '#9ee1f0',
             width: size,
             height: size,
             top: topPosition,
@@ -96,10 +96,12 @@ const styles = StyleSheet.create({
     flex: 1,
     position: 'relative',
     backgroundColor: 'transparent',
-    alignItems: 'center'
+    alignItems: 'stretch',
   },
   title: {
+    textAlign: 'center',
     fontStyle: 'italic',
+    marginTop: 10,
     marginBottom: 20,
   },
   row: {
@@ -108,7 +110,7 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center',
     paddingVertical: 10,
-    borderBottomColor: 'rgba(0,0,0,.5)',
+    borderBottomColor: 'rgba(0,0,0,.2)',
     borderBottomWidth: 1
   },
   image: {
