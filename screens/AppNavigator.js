@@ -1,6 +1,6 @@
 import React from 'react'
 import { StackNavigator } from 'react-navigation'
-import { Animated, Easing } from 'react-native'
+import { Animated, Easing, Platform } from 'react-native'
 import HomeScreen from '@screens/HomeScreen'
 import SavedNamesNavigator from '@screens/SavedNamesNavigator'
 import HeaderButton from '@components/HeaderButton'
@@ -94,8 +94,9 @@ const AppNavigator = StackNavigator({
     navigationOptions: props => {
       return {
         headerStyle: {
-          backgroundColor: 'transparent',
-          borderBottomWidth: 0
+          backgroundColor: Platform.OS === 'ios' ? 'transparent' : '#9ee1f0',
+          borderBottomWidth: 0,
+          elevation: 0
         },
         title: 'Opgeslagen namen',
         headerLeft: null,

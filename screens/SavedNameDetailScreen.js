@@ -32,8 +32,8 @@ class SavedNameDetailScreen extends Component {
               height: 200,
               backgroundColor: 'transparent'
             }}
-            source={require('@assets/confetti.json')}
-          />}
+            source={require('@assets/sheep.json')}
+          />
         </View>
         <Transition shared={`babyName_${params.baby.name}`}>
           <Text style={styles.name}>{params.baby.name}</Text>
