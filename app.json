@@ -4,6 +4,10 @@
     "slug": "react-navigation-animations",
     "sdkVersion": "26.0.0",
     "privacy": "public",
-    "icon": "./assets/icon.png"
+    "icon": "./assets/icon.png",
+    "description": "This app is a showcase of custom transitions and animations with React Navigation, please don't watch the UI ;-)",
+    "version": "1.0.0",
+    "githubUrl": "https://github.com/JasperVercammen/react-native-animation-demo",
+    "orientation": "portrait"
   }
 }
