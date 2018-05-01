@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, TouchableOpacity, Image, ImageBackground, Text } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 import Button from '@components/Button'
 
 class HomeScreen extends PureComponent {
@@ -31,16 +31,13 @@ class HomeScreen extends PureComponent {
   }
 
   render () {
-    const saveName = this.props.screenProps.saveName
     return (
-      <ImageBackground source={require('@assets/slab.png')} resizeMode='stretch' style={styles.container}>
-        <TouchableOpacity onPress={() => saveName(this.state.name, this.state.gender)}>
-          {this.state.gender === 'male' && <Image resizeMode='contain' source={require('@assets/boy.png')} style={styles.image} />}
-          {this.state.gender === 'female' && <Image source={require('@assets/girl.png')} style={styles.image} />}
-        </TouchableOpacity>
+      <View style={styles.container}>
         <Text style={styles.title}>{this.state.name}</Text>
         <Button label='Liever een andere naam' onPress={this.navigateNext} />
-      </ImageBackground>
+        <Text>{'\n'}</Text>
+        <Button label='Reset' onPress={this.reset} />
+      </View>
     )
   }
 }
@@ -55,29 +52,13 @@ HomeScreen.navigationOptions = ({navigation}) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'transparent',
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-    paddingBottom: 60
-  },
-  image: {
-    width: 75,
-    height: 75
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   title: {
     fontSize: 40,
     paddingTop: 10,
     paddingBottom: 30
-  },
-  button: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    backgroundColor: '#e40909',
-    borderRadius: 25
-  },
-  buttonText: {
-    color: '#fff',
-    fontWeight: 'bold'
   }
 })
 
