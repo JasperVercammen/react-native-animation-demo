@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, TouchableOpacity, Image, ImageBackground, Text } from 'react-native'
+import { StyleSheet, View, Text } from 'react-native'
 import Button from '@components/Button'
 
 class HomeScreen extends PureComponent {
@@ -26,21 +26,12 @@ class HomeScreen extends PureComponent {
     this.props.navigation.navigate({routeName: 'Home', params: {count: params.count + 1}})
   }
 
-  reset = () => {
-    this.props.navigation.popToTop()
-  }
-
   render () {
-    const saveName = this.props.screenProps.saveName
     return (
-      <ImageBackground source={require('@assets/slab.png')} resizeMode='stretch' style={styles.container}>
-        <TouchableOpacity onPress={() => saveName(this.state.name, this.state.gender)}>
-          {this.state.gender === 'male' && <Image resizeMode='contain' source={require('@assets/boy.png')} style={styles.image} />}
-          {this.state.gender === 'female' && <Image source={require('@assets/girl.png')} style={styles.image} />}
-        </TouchableOpacity>
+      <View style={styles.container}>
         <Text style={styles.title}>{this.state.name}</Text>
         <Button label='Liever een andere naam' onPress={this.navigateNext} />
-      </ImageBackground>
+      </View>
     )
   }
 }
