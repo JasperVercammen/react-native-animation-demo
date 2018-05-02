@@ -5,7 +5,7 @@ import HomeScreen from '@screens/HomeScreen'
 const transitionConfig = (props) => {
   return {
     transitionSpec: {
-      duration: 750,
+      duration: 1750,
       easing: Easing.bezier(0, 0.12, 0.88, 1),
       timing: Animated.timing,
       useNativeDriver: true
