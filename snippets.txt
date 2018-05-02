@@ -1,0 +1,69 @@
+======TRANSITIONCONFIG, DEMO1=======
+const transitionConfig = () => ({
+  transitionSpec: {
+    duration: 300,
+    easing: Easing.out(Easing.poly(4)),
+    timing: Animated.timing,
+  },
+  screenInterpolator: sceneProps => {
+    const { layout, position, scene } = sceneProps;
+    const { index } = scene;
+
+    const height = layout.initHeight;
+    const translateY = position.interpolate({
+      inputRange: [index - 1, index, index + 1],
+      outputRange: [height, 0, 0],
+    });
+
+    const opacity = position.interpolate({
+      inputRange: [index - 1, index - 0.99, index],
+      outputRange: [0, 1, 1],
+    });
+
+    return { opacity, transform: [{ translateY }] };
+  },
+}),
+
+======SCALE, DEMO1=======
+const scale = position.interpolate({
+  inputRange: [index - 1, index, index + 1],
+  outputRange: [0, 1 / (index + 2), 1 / (index + 1)]
+})
+
+
+======FOR BETTER OVERVIEW OF TRANSITIONS, DEMO X=======
+<View style={{flex: 1, transform: [{scale: 0.3}]}}>
+  <AppNavigator />
+</View>
+
+
+======NO DELAY, DEMO6=======
+transitionSpec: {
+    delay: 0,
+    duration: 150
+  },
+
+
+======LOTTIE STUFF, DEMO7=======
+
+componentDidMount () {
+    this.animation.reset()
+    this.animation.play()
+  }
+
+<View>
+          <Lottie
+            ref={animation => {
+              this.animation = animation
+            }}
+            style={{
+              width,
+              height: 200,
+              backgroundColor: 'transparent'
+            }}
+            source={require('@assets/sheep.json')}
+          />
+        </View>
+
+,
+    justifyContent: 'space-between'
