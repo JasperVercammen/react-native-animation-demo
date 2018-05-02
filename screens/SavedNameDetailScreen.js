@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {Image, View, StyleSheet, Dimensions, Text} from 'react-native'
-import {Transition} from 'react-navigation-fluid-transitions'
 import { DangerZone } from 'expo'
 import Button from '@components/Button'
 let { Lottie } = DangerZone
@@ -18,9 +17,7 @@ class SavedNameDetailScreen extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.topContainer}>
-          <Transition shared={`babyPic_${params.baby.name}`}>
-            <Image source={params.baby.gender === 'male' ? require('@assets/boy.png') : require('@assets/girl.png')} style={styles.image} />
-          </Transition>
+          <Image source={params.baby.gender === 'male' ? require('@assets/boy.png') : require('@assets/girl.png')} style={styles.image} />
         </View>
         <View style={styles.animation}>
           <Lottie
@@ -35,9 +32,7 @@ class SavedNameDetailScreen extends Component {
             source={require('@assets/sheep.json')}
           />
         </View>
-        <Transition shared={`babyName_${params.baby.name}`}>
-          <Text style={styles.name}>{params.baby.name}</Text>
-        </Transition>
+        <Text style={styles.name}>{params.baby.name}</Text>
         <View style={styles.bottomContainer}>
           <Button onPress={() => this.props.navigation.goBack()} label='Terug naar overzicht' />
         </View>
