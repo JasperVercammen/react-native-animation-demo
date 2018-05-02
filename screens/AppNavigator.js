@@ -12,8 +12,7 @@ const transitionConfig = (props) => {
     const bestNameIndex = scenes[scenes.length - 1].index
     return {
       transitionSpec: {
-        delay: 150,
-        duration: 150
+        duration: 0
       },
       containerStyle: {
         backgroundColor: 'transparent'
