@@ -19,7 +19,7 @@ const transitionConfig = (props) => {
   //     },
   //     screenInterpolator: sceneProps => {
   //       const { index, scene } = sceneProps
-  //       if (scene.index === index || scene.index + 1 === index || bestNameIndex === scene.index) return {}
+  //       if (scene.index + 1 === index || bestNameIndex === scene.index) return {}
   //       return {
   //         opacity: 0
   //       }
