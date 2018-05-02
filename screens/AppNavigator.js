@@ -52,7 +52,7 @@ const transitionConfig = (props) => {
         })
       }
 
-      return { transform: [{ translateX }, { translateY }, {scale}, {rotate}] }
+      return { transform: [{ translateX }, { translateY: 0 }, {scale: 1}, {rotate: '0deg'}] }
     }
   }
 }
