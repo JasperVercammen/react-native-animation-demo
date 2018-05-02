@@ -60,12 +60,7 @@ const transitionConfig = (props) => {
 
 const AppNavigator = StackNavigator({
   Home: {
-    screen: HomeScreen,
-    navigationOptions: (props) => {
-      return {
-        headerRight: (<HeaderButton onPress={() => props.navigation.navigate('SavedNames')} />)
-      }
-    }
+    screen: HomeScreen
   }
 }, {
   initialRouteParams: {
