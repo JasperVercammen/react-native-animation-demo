@@ -15,27 +15,28 @@ const transitionConfig = (props) => {
     },
     screenInterpolator: sceneProps => {
       const { position, progress, layout, scene, index } = sceneProps
-      const toIndex = index
       const thisSceneIndex = scene.index
       const width = layout.initWidth
 
-      if (toIndex !== thisSceneIndex && thisSceneIndex !== toIndex - 1 && thisSceneIndex !== toIndex + 1) return { opacity: 0 }
-
+      // go from right of the screen to the left
       const translateX = position.interpolate({
-        inputRange: [thisSceneIndex - 1, thisSceneIndex - 0.8, thisSceneIndex - 0.2, thisSceneIndex, thisSceneIndex + 0.2, thisSceneIndex + 0.8, thisSceneIndex + 1],
-        outputRange: [width, width, 0, 0, 0, -width, -width]
+        inputRange: [thisSceneIndex - 1, thisSceneIndex - 0.8, thisSceneIndex - 0.2, thisSceneIndex + 0.2, thisSceneIndex + 0.8, thisSceneIndex + 1],
+        outputRange: [width, width, 0, 0, -width, -width]
       })
 
+      // Rotate a bit ("swing" effect)
       const rotate = position.interpolate({
-        inputRange: [thisSceneIndex - 1, thisSceneIndex - 0.8, thisSceneIndex - 0.2, thisSceneIndex, thisSceneIndex + 0.2, thisSceneIndex + 0.8, thisSceneIndex + 1],
-        outputRange: [ '-9deg', '-9deg', '0deg', '0deg', '0deg', '9deg', '9deg' ]
+        inputRange: [thisSceneIndex - 1, thisSceneIndex - 0.8, thisSceneIndex - 0.2, thisSceneIndex + 0.2, thisSceneIndex + 0.8, thisSceneIndex + 1],
+        outputRange: [ '-9deg', '-9deg', '0deg', '0deg', '9deg', '9deg' ]
       })
 
+      // Zoom out, do the translateX and zoom in again
       const scale = progress.interpolate({
         inputRange: [0, 0.1, 0.5, 0.9, 1],
         outputRange: [index !== thisSceneIndex ? 1 : 0.6, 0.6, 0.6, 0.6, index !== thisSceneIndex ? 0.6 : 1]
       })
 
+      // Set a translateY according to
       let translateY = 0
       if (index !== thisSceneIndex) {
         translateY = progress.interpolate({
