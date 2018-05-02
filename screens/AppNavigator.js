@@ -1,35 +1,11 @@
-import React from 'react'
 import { StackNavigator } from 'react-navigation'
-import { Animated, Easing, Platform } from 'react-native'
+import { Animated, Easing } from 'react-native'
 import HomeScreen from '@screens/HomeScreen'
-import SavedNamesNavigator from '@screens/SavedNamesNavigator'
-import HeaderButton from '@components/HeaderButton'
 
 const transitionConfig = (props) => {
-  const { scenes } = props
-
-  if (scenes[scenes.length - 1].route.routeName === 'SavedNames') {
-    const bestNameIndex = scenes[scenes.length - 1].index
-    return {
-      transitionSpec: {
-        delay: 150,
-        duration: 150
-      },
-      containerStyle: {
-        backgroundColor: 'transparent'
-      },
-      screenInterpolator: sceneProps => {
-        const { index, scene } = sceneProps
-        if (scene.index === index || scene.index + 1 === index || bestNameIndex === scene.index) return {}
-        return {
-          opacity: 0
-        }
-      }
-    }
-  }
   return {
     transitionSpec: {
-      duration: 1750,
+      duration: 750,
       easing: Easing.bezier(0, 0.12, 0.88, 1),
       timing: Animated.timing,
       useNativeDriver: true
@@ -82,27 +58,7 @@ const transitionConfig = (props) => {
 
 const AppNavigator = StackNavigator({
   Home: {
-    screen: HomeScreen,
-    navigationOptions: (props) => {
-      return {
-        headerRight: (<HeaderButton onPress={() => props.navigation.navigate('SavedNames')} />)
-      }
-    }
-  },
-  SavedNames: {
-    screen: SavedNamesNavigator,
-    navigationOptions: props => {
-      return {
-        headerStyle: {
-          backgroundColor: Platform.OS === 'ios' ? 'transparent' : '#9ee1f0',
-          borderBottomWidth: 0,
-          elevation: 0
-        },
-        title: 'Opgeslagen namen',
-        headerLeft: null,
-        headerRight: (<HeaderButton onPress={() => props.navigation.goBack()} type='close' />)
-      }
-    }
+    screen: HomeScreen
   }
 }, {
   initialRouteParams: {
