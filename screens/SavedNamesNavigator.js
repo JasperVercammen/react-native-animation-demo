@@ -23,60 +23,10 @@ class SavedNamesContainer extends Component {
     }
   }
 
-  componentDidUpdate () {
-    // if (!this.props.isFocused) {
-    //   Animated.parallel([
-    //     Animated.timing(this.state.scale, {
-    //       toValue: 0,
-    //       duration: 300,
-    //       delay: 50,
-    //       easing: Easing.linear
-    //     }),
-    //     Animated.timing(this.state.opacity, {
-    //       toValue: 0,
-    //       duration: 100,
-    //       easing: Easing.linear
-    //     })
-    //   ]).start()
-    // }
-  }
-
-  componentDidMount () {
-    // Animated.parallel([
-    //   Animated.timing(this.state.scale, {
-    //     toValue: 4,
-    //     duration: 300,
-    //     easing: Easing.linear
-    //   }),
-    //   Animated.timing(this.state.opacity, {
-    //     toValue: 1,
-    //     duration: 50,
-    //     delay: 250,
-    //     easing: Easing.linear
-    //   })
-    // ]).start()
-  }
-
   render () {
-    const topPosition = -size / 2
-    const leftPosition = width / 2
     return (
       <View style={styles.container}>
-        {/* <Animated.View style={{
-          position: 'absolute',
-          backgroundColor: '#9ee1f0',
-          width: size,
-          height: size,
-          top: topPosition,
-          left: leftPosition,
-          borderRadius: size / 2,
-          transform: [{
-            scale: this.state.scale
-          }]
-        }} /> */}
-        {/* <Animated.View style={{opacity: this.state.opacity, flex: 1}}> */}
         <SavedNamesNavigator screenProps={this.props.screenProps} />
-        {/* </Animated.View> */}
       </View>
     )
   }
