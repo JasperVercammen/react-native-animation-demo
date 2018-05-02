@@ -1,13 +1,11 @@
-import React from 'react'
 import { StackNavigator } from 'react-navigation'
 import { Animated, Easing } from 'react-native'
 import HomeScreen from '@screens/HomeScreen'
-import HeaderButton from '@components/HeaderButton'
 
 const transitionConfig = (props) => {
   return {
     transitionSpec: {
-      duration: 1750,
+      duration: 750,
       easing: Easing.bezier(0, 0.12, 0.88, 1),
       timing: Animated.timing,
       useNativeDriver: true
