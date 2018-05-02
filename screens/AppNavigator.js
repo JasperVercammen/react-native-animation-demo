@@ -8,25 +8,25 @@ import HeaderButton from '@components/HeaderButton'
 const transitionConfig = (props) => {
   const { scenes } = props
 
-  if (scenes[scenes.length - 1].route.routeName === 'SavedNames') {
-    const bestNameIndex = scenes[scenes.length - 1].index
-    return {
-      transitionSpec: {
-        delay: 150,
-        duration: 150
-      },
-      containerStyle: {
-        backgroundColor: 'transparent'
-      },
-      screenInterpolator: sceneProps => {
-        const { index, scene } = sceneProps
-        if (scene.index === index || scene.index + 1 === index || bestNameIndex === scene.index) return {}
-        return {
-          opacity: 0
-        }
-      }
-    }
-  }
+  // if (scenes[scenes.length - 1].route.routeName === 'SavedNames') {
+  //   const bestNameIndex = scenes[scenes.length - 1].index
+  //   return {
+  //     transitionSpec: {
+  //       delay: 150,
+  //       duration: 150
+  //     },
+  //     containerStyle: {
+  //       backgroundColor: 'transparent'
+  //     },
+  //     screenInterpolator: sceneProps => {
+  //       const { index, scene } = sceneProps
+  //       if (scene.index === index || scene.index + 1 === index || bestNameIndex === scene.index) return {}
+  //       return {
+  //         opacity: 0
+  //       }
+  //     }
+  //   }
+  // }
   return {
     transitionSpec: {
       duration: 1750,
